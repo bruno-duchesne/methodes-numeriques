@@ -1,0 +1,16 @@
+# Introduction {-}
+
+Dans ce cours de méthodes numériques, il sera question essentiellement de suites. Celles-ci sont au coeur de l'analyse en mathématiques. Nous donnerons les définitions rigoureuses de limites, continuité et dérivation à l'aide d'$\varepsilon$ (la lettre grecque epsilon) et $\delta$ (la lettre grecque  delta). Ce sera donc l'occasion d'acquérir les bases de ce domaine des mathématiques alors que vous avez peut-être déjà rencontré les suites et leurs propriétés de manière moins formelle au lycée.
+
+Les suites sont indicées par l'ensemble des entiers naturels $\mathbb{N}$ et la propriété fondamentale de cet ensemble c'est que chaque entier $n\in\mathbb{N}$ possède un successeur qui est simplement $n+1$ et que tous les nombres entiers sont obtenus de cette manière en l'itérant depuis 0 (bref, on obtient tout entier en comptant suffisamment longtemps depuis 0). C'est exactement le _principe de récurrence_ qui permet de montrer des propriétés pour des entiers dès lors que l'on peut l'initialiser et justifier l'étape du passage de $n$ à $n+1$.
+
+En informatique, c'est la notion de _récursivité_ qui joue un rôle analogue. Comprendre les raisonnements par récurrence permet d'appréhender les algorithmes récursifs.
+
+Nous étudierons des suites récurrentes, c'est-à-dire de la forme $u_{n+1}=f(u_n)$ où $f$ est unf fonction réelle. Pour pouvoir les étudier, nous aurons besoin de certaines propriétés de la fonction $f$ comme sa continuité ou sa dérivabilité. Ce sera l'occasion de revenir sur ces points.
+
+Les suites apparaissent aussi de manière cruciale en informatique dans des questions de complexité algorithmique. De manière informelle considérent un algorithme qui prend en entrée des données dont on note $n$ la taille (par exemple le nombre de bits) et on note $c_n$ le temps de calcul pour une donnée de taille $n$. Plus les données sont grandes ($n$ est grand) plus le temps de calcul est grand. On écrira $c_n\to+\infty$. La question est de savoir à quelle vitesse la suite $c_n$ grandit. 
+
+En pratique, si la croissance est trop forte (par exemple exponentielle) alors l'algorithme ne s'arretera pas en un temps raisonnable pour des données de grande taille. Ainsi, l'algorithme ne sera pas utile dans ce cas. C'est sur cette impossibilité pratique que reposent certains algorithmes comme le famuex algorithme RSA utilisé en cryptographie.
+
+
+Les ordinateurs ne manipulent que des données finies (des suites finies de 0 et 1 plus précisément). Comment manipulez des nombres comme $\sqrt{2}$ ou $\pi$ qui ne sont pas rationnels et encore moins décimaux ? On fera alors des calculs approchés. Plus précisément, on calculera des approximations d'un tel nombre $l$, c'est-à-dire des suites $x_n$ telles que $x_n\to l$ et on choisira $n$ suffisamment grand pour obtenir la précision désirée.

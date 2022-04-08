@@ -1,0 +1,20 @@
+# Suites
+
+## Monotonie
+
+## Limites
+
+:::{.definition}
+Une suite $(x_n)$ converge vers une limite $\ell$ si pour tout $\epsilon>0$, il existe $N\in\mathbb{N}$ tel que pour tout $n\geq N$, $|x_n-\ell|\leq\epsilon$.
+:::
+
+## Opérations sur les limites
+
+
+:::{.proposition}
+Toute suite croissante et majorée est convergente
+:::
+
+:::{.proposition}
+Toute suite décroissante et minorée est convergente
+:::

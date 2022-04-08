@@ -1,0 +1,326 @@
+# Suites
+
+:::{.definition}
+Une _suite numérique_ est la donnée pour tout $n\in\mathbb{N}$ d'un nombre réel $x_n\in\mathbb{R}$. On notera alors cette suite $(x_n)_{n\in\mathbb{N}}$ ou simplement $(x_n)$.
+:::
+
+Une suite numérique est donc exactement une application de $\mathbb{N}$ dans $\mathbb{R}$. On dit que $x_n$ est le _terme général_ de la suite $(x_n)$. 
+
+
+:::{.example} 
+Voici quelques exemples de suites.
+
+1. Une suite est _arithmétique_ s'il existe un nombre $r\in\mathbb{R}$ appelé _raison_ tel que $x_{n+1}=x_n+r$ pour tout $n\in\mathbb{N}$.
+2. Une suite est _géométrique_ s'il existe un nombre $a\in\mathbb{R}\setminus\{0\}$ tel que $x_{n+1}=ax_n$ pour tout $n\in\mathbb{N}$.
+3. Notons $m_n$ le nombre de malades du COVID au $n$-ième jour depuis le début de l'épidémie alors $(m_n)_{n\in\mathbb{N}}$ est une suite.
+4. On considère un algorithme de tri de listes. Pour un liste de taille $n$, on note $c_n$ le nombre maximal d'opérations à effectuer. Alors $(c_n)$ est une suite. 
+:::
+
+
+## Monotonie
+
+:::{.definition} 
+Soit $S=(x_n)$ une suite numérique. 
+
+On dit que $S$ est _croissante_ si pour tout $n\leq m$, $x_n\leq x_m$. 
+
+On dit que $S$ est _décroissante_ si pour tout $n\leq m$, $x_n\geq x_m$. 
+
+Finalement, on dit qu'une suite est _monotone_ si elle est croissante ou décroissante.
+:::
+
+
+:::{.lemma}
+Une suite $(x_n)$ est croissante (respectivement décroissante) si et seulement si pour tout $n\in\mathbb{N}$, $x_n\leq x_{n+1}$ (respectivement $x_n\geq x_{n+1}$).
+:::
+
+
+:::{.proof}
+La preuve est identique pour les suites croissantes et décroissantes. On ne traite que le cas croissant.
+
+Supposons $(x_n)$ croissante. Alors pour $n$ fixé, on applique la définition de croissance à $n$ et $m=n+1$ et on obtient $x_n\leq x_{n+1}$.
+
+Réciproquement, on suppose que pour tout $k\in \mathbb{N}$, $x_k\leq x_{k+1}$. Fixons $n,m\in\mathbb{N}$ avec $n\leq m$. Montrons par récurrence sur  $i\in\mathbb{N}$ que $x_n\leq x_{n+i}$. Pour $i=0$, on a bien $x_n=x_{n+0}$ ce qui initialise la réccurence. 
+
+On suppose le résultat pour $i$. Par hypothèse de récurrence, on a $x_n\leq x_{n+i}$ et a aussi $x_{n+i}\leq x_{n+i+1}$ donc $x_n\leq x_{n+i}\leq x_{n+i+1}$ et donc $x_n\leq x_{n+i+1}$. Ce qui montre l'étape de récurrence. Par principe de récurrence, nous avons bien  $x_n\leq x_{n+i}$ pour tout $i\in\mathbb{N}$. On applique le résultat à $i=m-n\in\mathbb{N}$ et on a donc $n+i=m$ et donc $x_n\leq x_m$. Ce que l'on voulait montrer.
+:::
+
+
+## Convergence
+On rappelle que la _valeur absolue_ d'un nombre réel $x$ est le nombre positif noté $|x|$ avec $|x|=x$ si $x\geq0$ et $|x|=-x$ si $x\leq0$. On a toujours l'inégalité $x\leq|x|$ et $|-x|=|x|$. On utilisera souvent des inégalités du type $|x-y|\leq \varepsilon$, ce qui est équivalent à la double inégalité suivante :
+
+$$-\varepsilon\leq x-y\leq \varepsilon.$$
+
+:::{.lemma name="inégalité triangulaire"}
+Soit $x,y\in\mathbb{R}$, on a $$|x+y|\leq |x|+|y|.$$
+:::
+
+
+:::{.proof}
+On sépare en 4 cas selon les signes de $x$ et $y$.
+
+1. Si $x,y\geq0$ alors $|x+y|=x+y=|x|+|y|$.
+2. Si $x,y\leq0$ alors $|x+y|=|-x-y|$ et on est ramené au cas précédent en considérant $-x$ et $-y$ qui sont positifs.
+3. Si $x\geq0$ et $y\leq0$ alors $x+y\leq x$ et $-x-y \leq -y=|y|$.
+4. Si $x\leq0$ et $y\geq0$, on se ramène au cas précédent en échangeant les rôles de $x$ et $y$. 
+:::
+
+
+:::{.definition}
+Une suite $(x_n)$ _converge_ vers une limite $\ell$ si pour tout $\varepsilon>0$, il existe $N\in\mathbb{N}$ tel que pour tout $n\geq N$, $|x_n-\ell|\leq\varepsilon$. On notera alors $\lim x_n=\ell$.
+
+Une suite qui converge vers une limite est appelée _suite convergente_.
+
+:::
+
+
+:::{.lemma}
+Toute suite admet au plus une limite.
+:::
+
+:::{.proof}
+On raisonne par l'absurde. Suppsons que $(x_n)$ admette deux limites $\ell_1$ et $\ell_2$ avec $\ell_1\neq\ell_2$. On applique la définition de limite avec $\varepsilon=|\ell_1-\ell_2|/3$. Il existe alors $N_1$ tel que pour tout $n\geq N_1$ $|\ell_1-x_n|<\varepsilon$ et $N_2$ tel que pour tout $n\geq N_2$ $|\ell_2-x_n|<\varepsilon$. Posons $N=\max\{N_1,N_2\}$ alors pour $n\geq N$, $|\ell_1-x_n|<\varepsilon$ et $|\ell_2-x_n|<\varepsilon$. comme $|\ell_1-\ell_2|=|\ell_1-x_n+x_n-\ell_2|$, on a $|\ell_1-\ell_2|\leq|\ell_1-x_n|+|x_n-\ell_2|$ par inégalité triangulaire. Ainsi, $|\ell_1-\ell_2|\|eq2\varepsilon=2/3|\ell_1-\ell_2|$ et comme  $|\ell_1-\ell_2|\neq0$, on obtient la contradiction $3\leq2$.
+
+:::
+
+:::{.definition}
+Soit $A\in\mathbb{R}$ et $(x_n)$ une suite, on dit que $A$ est un _majorant_ de $(x_n)$ si $x_n\leq A$ pour tout $n\in\mathbb{R}$. Une suite qui possède un majorant est dite _majorée_.
+
+Soit $A\in\mathbb{R}$ et $(x_n)$ une suite, on dit que $A$ est un _minorant_ de $(x_n)$ si $x_n\geq A$ pour tout $n\in\mathbb{R}$. Une suite qui possède un majorant est dite _minorée_.
+
+Une suite est _bornée_ si elle est à la fois majorée et minorée.
+:::
+
+:::{.example}
+Une suite $(x_n)$ est _constante_ s'il existe  $a\in\mathbb{R}$ tel que $x_n=a$ pour tout $n\in\mathbb{N}$. Une suite constante est toujours convergente de limite égale à la constante $a$. 
+:::
+
+:::{.example #harmonique}
+La suite $(1/n)_{n\in\mathbb{N}^*}$ converge vers 0.
+:::
+
+:::{.proof}
+Fixons $\varepsilon>0$ alors $1/\varepsilon>0$ et il existe $N\in\mathbb{N}^*$ tel que $N\geq 1/\varepsilon$. Maintenant, pour $n\geq N$, $0\leq\frac{1}{n}\leq\frac{1}{N}\leq \varepsilon$ et donc $\left|\frac{1}{n}-0\right|\leq\varepsilon$ et on a bien montré que $\lim \frac{1}{n}=0$.
+:::
+
+```{r chunk-label, echo = FALSE, fig.cap = 'Les premières valeurs de la suite de terme général $x_n=1/n$ qui converge vers 0. '}
+# Suite des inverses des entiers
+x <- c(1,2,3,4,5,6,7,8,9,10)
+y <- c(1,1/2,1/3,1/4,1/5,1/6,1/7,1/8,1/9,1/10)
+plot(x,y, pch=20, xlab='n', ylab='1/n')
+
+```
+
+:::{.proposition}
+Soit $(x_n)$ et $(y_n)$ deux suites convergentes de limites respectives $\ell_1$ et $\ell_2$. On a les propriétés suivantes.
+
+1. La suite $x_n+y_n$ est convergente avec $\lim x_n+y_n=\ell_1+\ell_2$.
+2. La suite $x_ny_n$ est convergente avec $\lim x_ny_n=\ell_1\ell_2$.
+3. Si $\ell_2\neq0$ et $y_n\neq 0$ pour tout $n\in\mathbb{N}$ alors la suite $x_n/y_n$ est convergente avec $\lim x_n/y_n=\ell_1/\ell_2$.
+4. Si $x_n\leq y_n$ pour tout $n\in\mathbb{N}$ alors $\ell_1\leq \ell_2$.
+5. Soit $a\in\mathbb{R}$. Si $x_n\geq a$ (respectivement $x_n\leq a$) pour tout $n\in\mathbb{N}$ alors $\ell_1\geq a$ (respectivement $\ell_1\leq a$).
+:::
+
+:::{.proof}
+
+1. Soit $\varepsilon>0$. Comme $x_n\to\ell_1$, il existe $N_1$ tel que pour tout $n\geq N_1$, $|x_n-\ell_1|\leq \varepsilon/2$. De même, il $N_1$ tel que pour tout $n\geq N_2$, $|x_n-\ell_2|\leq \varepsilon/2$. Maintenant pour $n\geq\max{N_1,N_2}$, $|x_n+y_n-(\ell_1-\ell_2)|=|x_n-\ell_1+ y_n-\ell_2|\leq |x_n-\ell_1|+|y_n-\ell_2|\leq \varepsilon/2+\varepsilon/2=\varepsilon$.
+2. 
+3. Montrons d'abord le cas particulier où $(x_n)$ est constante égale à 1, c'est-à-dire montrons que $1/y_n\to1/\ell_2$. On a
+
+$$\left|\frac{1}{y_n}-\frac{1}{\ell_2}\right|=\left|\frac{\ell_2-y_n}{y_n\ell_2}\right|$$
+
+Comme $y_n\to\ell_2$, il existe $N\in\mathbb{N}$ tel que pour tout $n\geq N$, $|y_n|\geq |\ell_2|/2$. Ainsi $\left|\frac{1}{y_n}-\frac{1}{\ell_2}\right|\leq 2/|\ell_2|^2 |y_n-\ell_2|$ et donc pour $n$ assez grand pour que $|y_n-\ell_2|\leq\varepsilon/(2/|\ell_2|^2)$, on a bien \left|\frac{1}{y_n}-\frac{1}{\ell_2}\right|\leq\varepsilon$.
+4.
+5. On utilise le cas 4. avec $(y_n)$ constante égale à $a$. 
+:::
+## Opérations sur les limites
+
+:::{.definition name="Bornes supérieures et inférieures"}
+Si $(x_n)$ est une suite majorée, on note $\sup x_n$ le plus petit des ses majorants. 
+
+Si $(x_n)$ est une suite minorée, on note $\inf x_n$ le plus petit des ses minorants. 
+:::
+
+L'existence des ces bornes supérieures ($\sup x_n$) et inférieures ($\inf x_n$) n'est pas évidente et une conséquence d'une construction formelle de l'ensemble des nombres réels $\mathbb{R}$. Nous ne rentrons pas dans ces détails et admettons l'existence des bornes supérieures et inférieures. La construction donne la proposition suivante.
+
+:::{.proposition #sup}
+Soit $(x_n)$ une suite majorée (respectivement minorée) de borne supérieure $A=\sup x_n$ (respectivement borne inférieure $A=\inf x_n$) et $\varepsilon>0$ . Alors il existe $n\in\mathbb{N}$ tel que $x_n\geq A-\varepsilon$ (respectivement $x_n\leq A+\varepsilon$).
+:::
+
+:::{.proposition}
+Toute suite $(x_n)$ croissante et majorée est convergente vers $\sup x_n$.
+:::
+
+:::{.proposition}
+Toute suite $(x_n)$ décroissante et minorée est convergente vers $\inf x_n$.
+:::
+
+:::{.proof}
+La preuve est la même pour les deux proposition en changeant ce qui doit l'être. On prouve seulement la première et on note $A=\sup x_n$. Soit $\varepsilon>0$, par la Proposition  \@ref(prp:sup), il existe $n_0\in\mathbb{N}$ tel que $x_{n_0}\geq A-\varepsilon$.Par croissance, on a aussi $x_n\geq x_{n_0}\geq A-\varepsilon$ pour $n\geq n_0$. Comme $A$ est un majorant, on a aussi $x_{n}\leq A$ pour tout $n\in\mathbb{N}$ et donc  $n\in\mathbb{N}$.
+::: 
+
+
+:::{.example} 
+La suite $(x_n)$ définie par $x_n=1/n$ pour $n\in\mathbb{N}^*$ est décroissante et minorée par 0. On a déjà vu qu'elle converge vers 0 dans l'Exemple \@ref(exm:harmonique).
+:::
+
+
+## Limites infinies
+
+Il existe des cas où une suite ne converge pas mais devient "aussi grande possible". La définition suivante rend rigoureuse cette notion.
+
+:::{.definition}
+Une suite $(x_n)$ _converge vers $+\infty$_ si pour tout $A>0$, il existe $N\in\mathbb{N}$ tel que pour tout $n\geq N$, $x_n\geq A$. On note $\lim x_n=+\infty$.
+
+Une suite $(x_n)$ _converge vers $-\infty$_ si pour tout $A<0$, il existe $N\in\mathbb{N}$ tel que pour tout $n\geq N$, $x_n\leq A$. On note $\lim x_n=-\infty$.
+:::
+
+
+:::{.example}
+Pour un entier strictement positif $k$, la suite $(x_n)$ où $x_n=n^k$ converge vers $+\infty$.
+:::
+
+:::{.proof}
+Soit $A>0$, On choisit $N\geq A$ et $N\geq1$, par exemple, $N=\lfloor A\rfloor+1$ (partie entière plus 1). Pour $n\geq N$, on a $n^k=\underbrace{n\times\cdots\times n}_{k\ \textrm{fois}}\geq n\geq N\geq A$ car $n\geq 1$ et $k\geq 1$.
+:::
+
+
+:::{.proposition}
+Une suite croissante non majorée converge vers $+\infty$. De même, une suite décroissante non minorée converge vers $-\infty$.
+:::
+
+
+:::{.proof}
+On prouve uniquement le cas d'une suite croissante, la preuve s'adapte pour le cas décroissant. Soit $(x_n)$ une suite croissante non majorée. Soit $A>0$. Comme la suite n'est pas pas majorée, $A$ n'est pas un majorant et donc il existe $n_0\in\mathbb{N}$ tel que $x_{n_0}>A$ et donc par croissance, pour tout $n\geq n_0$, $x_n\geq A$. Ce qui montre bien $\lim x_n=+\infty$.
+:::
+
+:::{.proposition}
+Soit $(x_n)$ et $(y_n)$ avec $x_n\leq y_n$ pour tout $n\in\mathbb{N}$.
+
+* Si $\lim x_n=+\infty$ alors $\lim y_n=+\infty$.
+* Si $\lim y_n=-\infty$ alors $\lim x_n=-\infty$.
+:::
+
+:::{.proof}
+Supposons $\lim x_n=+\infty$ et choisissons $A>0$ alors il existe $N\in\mathbb{N}$ tel que pour tout $n\geq N$ $x_n\geq A$. Ainsi, pour $n\geq N$, $y_n\geq x_n\geq A$ et on a prouvé que $\lim y_n=+\infty$.
+
+Le second cas se traite de manière analogue.
+:::
+
+## Deux exemples
+
+### Suites arithmétiques
+
+:::{.theorem}
+Soit $(x_n)$ une suite arithmétique de raison $r$
+
+*  Si $r>0$ alors $\lim x_n=+\infty$.
+*  Si $r=0$ alors $\lim x_n=x_0$.
+*  Si $r<0$ alors $\lim x_n=-\infty$.
+:::
+
+:::{.proof}
+Par récurrence, on montre que $x_n=x_0+nr$. 
+
+*  Si $r>0$ alors pour $A>0$ fixé, on prend $N=\lfloor (A-x_0)/r\rfloor+1$ et alors pour $n\geq N$, $n\geq (A-x_0)/r$, ce qui donne $x_n=x_0+nr\geq A$ et donc $\lim x_n=+\infty$.
+*  Si $r=0$ alors la suite $(x_n)$ est constante égale à $x_0$ et converge donc vers cette limite.
+*  Si $r<0$ alors pour $A<0$ fixé, on prend $N$ entier plus grand que $(A-x_0)/r$ (remarquons que $A/r>0$ car $A$ et $r$ sont négatifs). Maintenant, pour $n\geq N$, $$n\geq \frac{A-x_0}{r}$$ et comme $r<0$,
+
+$$nr\leq A-x_0$$ 
+et donc $x_n=x_0+nr\leq A$. Ainsi, $\lim x_n=-\infty$.
+:::
+
+### Suites géométriques
+Commençons avec un petit lemme qui permettra de comparer suite géométrique et arithmétique.
+
+:::{.lemma name="Inégalité de Bernoulli"}
+Pour tout réel $a\geq0$ et nombre entier $n\in\mathbb{N}$, on a
+
+$$(1+a)^n\geq1+na.$$
+:::
+
+:::{.proof}
+On le montre par récurrence sur $n$. Pour $n=0$, on obtient $1=1$ et la récurrence est initialisée. Supposons maintenant le résultat pour $n$ fixé. Alors $(1+a)^{n+1}=(1+a)^n\cdot(1+a)\geq(1+na)(1+a)=1+(n+1)a+na^2\geq 1+(n+1)a$. Ce qui montre l'étape de récurrence.
+:::
+
+Dans le théorème suivant, on se place dans le cas d'une suite géométrique de premier terme $x_0$ non nul. En effet, si $x_0=0$, la suite est constante égale à 0 et il n'y a rien de plus à dire.
+
+:::{.theorem}
+Soit $(x_n)$ une suite géométrique de raison $r$ avec $x_0\neq0$.
+
+* Si $r>1$ alors $\lim x_n=+\infty$ si $x_0>0$ et $\lim x_n=-\infty$ si $x_0<0$.
+* Si $r=1$ alors la suite est constante égale à $x_0$.
+* Si $|r|<1$ alors $\lim x_n=0$.
+* Si $r\leq -1$ alors la suite $(x_n)$ n'est pas convergente.
+:::
+
+:::{.proof}
+Un raisonnement par récurrence montre que $x_n= r^nx_0$. 
+
+* Si $r>1$ alors posons $a=r-1>0$. Ainsi, $r^n=(1+a)^n\geq 1+na$. Pour $A>0$, On choisit $N$ entier supérieur à $A/a$, ainsi pour $n\geq N$, $n\geq A/a$ et donc $r^n\geq
+* Si $r=1$ alors $r^n=1$ pour tout $n$ et donc $x_n=x_0$ pour tout $n$.
+* Si $|r|<1$ alros $1/|r|>1$ et donc par le premier cas, pour tout $\varepsilon>0$, il existe $N\in\mathbb{N}$ tel que pour tout $n\geq N$, $\left(1/|r|\right)^n\geq \frac{|x_0|}{\varepsilon}$ et ainsi $|r^nx_0|\leq\varepsilon$. Ce qui montre que $x_n=r^nx_0\to0$.
+* Si $r< -1$ alors $|x_n|=|r|^n|x_0|\to\infty$ car $|r|>1$. Ainsi, la suite n'est pas bornée et donc ne peut pas converger (voir l'Exercice \@ref(exr:borne))
+:::
+
+
+## Suites adjacentes
+
+:::{.definition} 
+Soit $(x_n)$ et $(y_n)$ deux suites numériques. On dit que ces suites sont _adjacentes_ si $x_n\geq y_n$ pour tout $n\in\mathbb{N}$, $(x_n)$ est croissante, $(y_n)$ est décroissante et $\lim y_n-x_n=0$.
+:::
+
+:::{.proposition}
+Si $(x_n)$ et $(y_n)$ sont deux suites adjacentes alors ces deux suites sont convergentes et $\lim x_n=\lim y_n$.
+:::
+
+:::{.proof}
+La suite $(x_n)$ est croissante majorée (par $y_0$ par exemple) et donc converge vers une limite $\ell_1$. De même, $(y_n)$ est décroissante minorée et donc converge vers une limite $\ell_2$. Ainsi la suite $(y_n-x_n)$ est convergente de limite $\ell_2-\ell_1$. Comme $\lim y_n-x_n=0$, on a $\ell_2-\ell_1=0$ et donc $\ell_1=\ell_2$.
+:::
+
+```{r chunk-label-1, echo = FALSE, fig.cap = 'Deux suites adjacentes qui converge vers 1. '}
+# Suite des inverses des entiers
+x <- c(1,1,2,2,3,3,4,4,5,5,6,6,7,7,8,8,9,9,10,10)
+y <- c(2,0,3/2,1/2,4/3,2/3,5/4,3/4,6/5,4/5,7/6,5/6,8/7,6/7,9/8,7/8,10/9,8/9,11/10,9/10)
+plot(x,y, pch=20)
+abline(h=1, col="blue")
+```
+
+:::{.theorem name="Théorème des gendarmes"}
+Soit $(x_n), (y_n)$ et $(u_n)$ trois suites telles que pour tout $n\in\mathbb{N}$, $x_n\leq u_n\leq y_n$ et telles $(x_n), (y_n)$ sont convergentes avec $\lim x_n=\lim y_n=\ell$ alors $(u_n)$ est convergente de limite $\ell$.
+:::
+
+## Exercices
+
+:::{.exercise}
+Donner un exemple d'une suite qui n'est pas monotone.
+:::
+
+:::{.exercise}
+Montrer qu'une suite $(x_n)$ est bornée si et seulement s'il existe $A\geq 0$ tel que pour tout $n\in \mathbb{N}$, $|x_n|\leq A$.
+:::
+
+:::{.exercise #borne}
+Montrer qu'une suite convergente est toujours bornée.
+:::
+
+:::{.exercise}
+On définit deux suites $(x_n)$ et $(y_n)$ par $x_n=2^n$ et $y_n=3^n$. Déterminer la comportement des suites de termes généraux $z_n=x_n+y_n$, $u_n=x_n-y_n$, $v_n=x_ny_n$, $w_n=x_n/y_n$ et $t_n=y_n/x_n$.
+:::
+
+:::{.exercise}
+Soit $(x_n)$ une suite convergente de limite $\ell$. On pose $y_n=x_{2n}$ pour tout $n\in\mathbb{N}$. Montrer que la suite $(y_n)$ est convergente de limite $\ell$.
+:::
+
+:::{.exercise}
+Soit $a,b\in \mathbb{R}$. On fixe $x_0$ et on définit récursivement $x_{n+1}=ax_n+b$.
+
+1. Déterminer le comportement de $(x_n)$ si $a=0$ ou $a=1$.
+2. On suppose $a\neq0$. On pose $c=\frac{b}{a-1}$ et $y_n=x_n+c$. Montrer que $(y_n)$ est une suite géométrique de raison $a$.
+3. En fonction de $a$, déterminer le comportement de $y_n$ puis celui de $x_n$.
+4. À l'aide de la formule explicite d'une suite géométrique, déduire une formule explicite pour $x_n$.
+
+:::
+
+
+

@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapitre 1 Suites | Méthodes numériques</title>
+  <meta name="description" content="<p>This is a minimal example of using the bookdown package to write a book.
+The HTML output format for this example is bookdown::gitbook,
+set in the _output.yml file.</p>" />
+  <meta name="generator" content="bookdown 0.25 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapitre 1 Suites | Méthodes numériques" />
+  <meta property="og:type" content="book" />
+  
+  <meta property="og:description" content="<p>This is a minimal example of using the bookdown package to write a book.
+The HTML output format for this example is bookdown::gitbook,
+set in the _output.yml file.</p>" />
+  <meta name="github-repo" content="rstudio/bookdown-demo" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapitre 1 Suites | Méthodes numériques" />
+  
+  <meta name="twitter:description" content="<p>This is a minimal example of using the bookdown package to write a book.
+The HTML output format for this example is bookdown::gitbook,
+set in the _output.yml file.</p>" />
+  
+
+<meta name="author" content="Bruno Duchesne" />
+
+
+<meta name="date" content="2022-04-08" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="introduction.html"/>
+<link rel="next" href="continuité-et-dérivation-de-fonctions-réelles.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><span>Méthodes Numériques</span></li>
+
+<li class="divider"></li>
+<li><a href="introduction.html#introduction">Introduction<span></span></a></li>
+<li class="chapter" data-level="1" data-path="suites.html"><a href="suites.html"><i class="fa fa-check"></i><b>1</b> Suites<span></span></a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="suites.html"><a href="suites.html#monotonie"><i class="fa fa-check"></i><b>1.1</b> Monotonie<span></span></a></li>
+<li class="chapter" data-level="1.2" data-path="suites.html"><a href="suites.html#convergence"><i class="fa fa-check"></i><b>1.2</b> Convergence<span></span></a></li>
+<li class="chapter" data-level="1.3" data-path="suites.html"><a href="suites.html#opérations-sur-les-limites"><i class="fa fa-check"></i><b>1.3</b> Opérations sur les limites<span></span></a></li>
+<li class="chapter" data-level="1.4" data-path="suites.html"><a href="suites.html#limites-infinies"><i class="fa fa-check"></i><b>1.4</b> Limites infinies<span></span></a></li>
+<li class="chapter" data-level="1.5" data-path="suites.html"><a href="suites.html#deux-exemples"><i class="fa fa-check"></i><b>1.5</b> Deux exemples<span></span></a>
+<ul>
+<li class="chapter" data-level="1.5.1" data-path="suites.html"><a href="suites.html#suites-arithmétiques"><i class="fa fa-check"></i><b>1.5.1</b> Suites arithmétiques<span></span></a></li>
+<li class="chapter" data-level="1.5.2" data-path="suites.html"><a href="suites.html#suites-géométriques"><i class="fa fa-check"></i><b>1.5.2</b> Suites géométriques<span></span></a></li>
+</ul></li>
+<li class="chapter" data-level="1.6" data-path="suites.html"><a href="suites.html#suites-adjacentes"><i class="fa fa-check"></i><b>1.6</b> Suites adjacentes<span></span></a></li>
+<li class="chapter" data-level="1.7" data-path="suites.html"><a href="suites.html#exercices"><i class="fa fa-check"></i><b>1.7</b> Exercices<span></span></a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="continuité-et-dérivation-de-fonctions-réelles.html"><a href="continuité-et-dérivation-de-fonctions-réelles.html"><i class="fa fa-check"></i><b>2</b> Continuité et dérivation de fonctions réelles<span></span></a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="continuité-et-dérivation-de-fonctions-réelles.html"><a href="continuité-et-dérivation-de-fonctions-réelles.html#continuité"><i class="fa fa-check"></i><b>2.1</b> Continuité<span></span></a></li>
+<li class="chapter" data-level="2.2" data-path="continuité-et-dérivation-de-fonctions-réelles.html"><a href="continuité-et-dérivation-de-fonctions-réelles.html#dérivation"><i class="fa fa-check"></i><b>2.2</b> Dérivation<span></span></a></li>
+<li class="chapter" data-level="2.3" data-path="continuité-et-dérivation-de-fonctions-réelles.html"><a href="continuité-et-dérivation-de-fonctions-réelles.html#exponentielle-et-logarithme"><i class="fa fa-check"></i><b>2.3</b> Exponentielle et logarithme<span></span></a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="suites-récurrentes.html"><a href="suites-récurrentes.html"><i class="fa fa-check"></i><b>3</b> Suites récurrentes<span></span></a></li>
+<li class="chapter" data-level="4" data-path="approximations.html"><a href="approximations.html"><i class="fa fa-check"></i><b>4</b> Approximations<span></span></a></li>
+<li class="chapter" data-level="5" data-path="notations-de-landau-et-type-de-complexité.html"><a href="notations-de-landau-et-type-de-complexité.html"><i class="fa fa-check"></i><b>5</b> Notations de Landau et type de complexité<span></span></a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="notations-de-landau-et-type-de-complexité.html"><a href="notations-de-landau-et-type-de-complexité.html#notations-de-landau"><i class="fa fa-check"></i><b>5.1</b> Notations de Landau<span></span></a></li>
+<li class="chapter" data-level="5.2" data-path="notations-de-landau-et-type-de-complexité.html"><a href="notations-de-landau-et-type-de-complexité.html#comparaisons-usuelles"><i class="fa fa-check"></i><b>5.2</b> Comparaisons usuelles<span></span></a></li>
+<li class="chapter" data-level="5.3" data-path="notations-de-landau-et-type-de-complexité.html"><a href="notations-de-landau-et-type-de-complexité.html#application-à-la-complexité-de-quelques-algorithmes"><i class="fa fa-check"></i><b>5.3</b> Application à la complexité de quelques algorithmes<span></span></a></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Publié avec bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Méthodes numériques</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="suites" class="section level1 hasAnchor" number="1">
+<h1><span class="header-section-number">Chapitre 1</span> Suites<a href="suites.html#suites" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div class="definition">
+<p><span id="def:unlabeled-div-1" class="definition"><strong>Définition 1.1  </strong></span>Une <em>suite numérique</em> est la donnée pour tout <span class="math inline">\(n\in\mathbb{N}\)</span> d’un nombre réel <span class="math inline">\(x_n\in\mathbb{R}\)</span>. On notera alors cette suite <span class="math inline">\((x_n)_{n\in\mathbb{N}}\)</span> ou simplement <span class="math inline">\((x_n)\)</span>.</p>
+</div>
+<p>Une suite numérique est donc exactement une application de <span class="math inline">\(\mathbb{N}\)</span> dans <span class="math inline">\(\mathbb{R}\)</span>. On dit que <span class="math inline">\(x_n\)</span> est le <em>terme général</em> de la suite <span class="math inline">\((x_n)\)</span>.</p>
+<div class="example">
+<p><span id="exm:unlabeled-div-2" class="example"><strong>Exemple 1.1  </strong></span>Voici quelques exemples de suites.</p>
+<ol style="list-style-type: decimal">
+<li>Une suite est <em>arithmétique</em> s’il existe un nombre <span class="math inline">\(r\in\mathbb{R}\)</span> appelé <em>raison</em> tel que <span class="math inline">\(x_{n+1}=x_n+r\)</span> pour tout <span class="math inline">\(n\in\mathbb{N}\)</span>.</li>
+<li>Une suite est <em>géométrique</em> s’il existe un nombre <span class="math inline">\(a\in\mathbb{R}\setminus\{0\}\)</span> tel que <span class="math inline">\(x_{n+1}=ax_n\)</span> pour tout <span class="math inline">\(n\in\mathbb{N}\)</span>.</li>
+<li>Notons <span class="math inline">\(m_n\)</span> le nombre de malades du COVID au <span class="math inline">\(n\)</span>-ième jour depuis le début de l’épidémie alors <span class="math inline">\((m_n)_{n\in\mathbb{N}}\)</span> est une suite.</li>
+<li>On considère un algorithme de tri de listes. Pour un liste de taille <span class="math inline">\(n\)</span>, on note <span class="math inline">\(c_n\)</span> le nombre maximal d’opérations à effectuer. Alors <span class="math inline">\((c_n)\)</span> est une suite.</li>
+</ol>
+</div>
+<div id="monotonie" class="section level2 hasAnchor" number="1.1">
+<h2><span class="header-section-number">1.1</span> Monotonie<a href="suites.html#monotonie" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div class="definition">
+<p><span id="def:unlabeled-div-3" class="definition"><strong>Définition 1.2  </strong></span>Soit <span class="math inline">\(S=(x_n)\)</span> une suite numérique.</p>
+<p>On dit que <span class="math inline">\(S\)</span> est <em>croissante</em> si pour tout <span class="math inline">\(n\leq m\)</span>, <span class="math inline">\(x_n\leq x_m\)</span>.</p>
+<p>On dit que <span class="math inline">\(S\)</span> est <em>décroissante</em> si pour tout <span class="math inline">\(n\leq m\)</span>, <span class="math inline">\(x_n\geq x_m\)</span>.</p>
+<p>Finalement, on dit qu’une suite est <em>monotone</em> si elle est croissante ou décroissante.</p>
+</div>
+<div class="lemma">
+<p><span id="lem:unlabeled-div-4" class="lemma"><strong>Lemme 1.1  </strong></span>Une suite <span class="math inline">\((x_n)\)</span> est croissante (respectivement décroissante) si et seulement si pour tout <span class="math inline">\(n\in\mathbb{N}\)</span>, <span class="math inline">\(x_n\leq x_{n+1}\)</span> (respectivement <span class="math inline">\(x_n\geq x_{n+1}\)</span>).</p>
+</div>
+<div class="proof">
+<p><span id="unlabeled-div-5" class="proof"><em>Preuve</em>. </span>La preuve est identique pour les suites croissantes et décroissantes. On ne traite que le cas croissant.</p>
+<p>Supposons <span class="math inline">\((x_n)\)</span> croissante. Alors pour <span class="math inline">\(n\)</span> fixé, on applique la définition de croissance à <span class="math inline">\(n\)</span> et <span class="math inline">\(m=n+1\)</span> et on obtient <span class="math inline">\(x_n\leq x_{n+1}\)</span>.</p>
+<p>Réciproquement, on suppose que pour tout <span class="math inline">\(k\in \mathbb{N}\)</span>, <span class="math inline">\(x_k\leq x_{k+1}\)</span>. Fixons <span class="math inline">\(n,m\in\mathbb{N}\)</span> avec <span class="math inline">\(n\leq m\)</span>. Montrons par récurrence sur <span class="math inline">\(i\in\mathbb{N}\)</span> que <span class="math inline">\(x_n\leq x_{n+i}\)</span>. Pour <span class="math inline">\(i=0\)</span>, on a bien <span class="math inline">\(x_n=x_{n+0}\)</span> ce qui initialise la réccurence.</p>
+<p>On suppose le résultat pour <span class="math inline">\(i\)</span>. Par hypothèse de récurrence, on a <span class="math inline">\(x_n\leq x_{n+i}\)</span> et a aussi <span class="math inline">\(x_{n+i}\leq x_{n+i+1}\)</span> donc <span class="math inline">\(x_n\leq x_{n+i}\leq x_{n+i+1}\)</span> et donc <span class="math inline">\(x_n\leq x_{n+i+1}\)</span>. Ce qui montre l’étape de récurrence. Par principe de récurrence, nous avons bien <span class="math inline">\(x_n\leq x_{n+i}\)</span> pour tout <span class="math inline">\(i\in\mathbb{N}\)</span>. On applique le résultat à <span class="math inline">\(i=m-n\in\mathbb{N}\)</span> et on a donc <span class="math inline">\(n+i=m\)</span> et donc <span class="math inline">\(x_n\leq x_m\)</span>. Ce que l’on voulait montrer.</p>
+</div>
+</div>
+<div id="convergence" class="section level2 hasAnchor" number="1.2">
+<h2><span class="header-section-number">1.2</span> Convergence<a href="suites.html#convergence" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>On rappelle que la <em>valeur absolue</em> d’un nombre réel <span class="math inline">\(x\)</span> est le nombre positif noté <span class="math inline">\(|x|\)</span> avec <span class="math inline">\(|x|=x\)</span> si <span class="math inline">\(x\geq0\)</span> et <span class="math inline">\(|x|=-x\)</span> si <span class="math inline">\(x\leq0\)</span>. On a toujours l’inégalité <span class="math inline">\(x\leq|x|\)</span> et <span class="math inline">\(|-x|=|x|\)</span>. On utilisera souvent des inégalités du type <span class="math inline">\(|x-y|\leq \varepsilon\)</span>, ce qui est équivalent à la double inégalité suivante :</p>
+<p><span class="math display">\[-\varepsilon\leq x-y\leq \varepsilon.\]</span></p>
+<div class="lemma">
+<p><span id="lem:unlabeled-div-6" class="lemma"><strong>Lemme 1.2  (inégalité triangulaire) </strong></span>Soit <span class="math inline">\(x,y\in\mathbb{R}\)</span>, on a <span class="math display">\[|x+y|\leq |x|+|y|.\]</span></p>
+</div>
+<div class="proof">
+<p><span id="unlabeled-div-7" class="proof"><em>Preuve</em>. </span>On sépare en 4 cas selon les signes de <span class="math inline">\(x\)</span> et <span class="math inline">\(y\)</span>.</p>
+<ol style="list-style-type: decimal">
+<li>Si <span class="math inline">\(x,y\geq0\)</span> alors <span class="math inline">\(|x+y|=x+y=|x|+|y|\)</span>.</li>
+<li>Si <span class="math inline">\(x,y\leq0\)</span> alors <span class="math inline">\(|x+y|=|-x-y|\)</span> et on est ramené au cas précédent en considérant <span class="math inline">\(-x\)</span> et <span class="math inline">\(-y\)</span> qui sont positifs.</li>
+<li>Si <span class="math inline">\(x\geq0\)</span> et <span class="math inline">\(y\leq0\)</span> alors <span class="math inline">\(x+y\leq x\)</span> et <span class="math inline">\(-x-y \leq -y=|y|\)</span>.</li>
+<li>Si <span class="math inline">\(x\leq0\)</span> et <span class="math inline">\(y\geq0\)</span>, on se ramène au cas précédent en échangeant les rôles de <span class="math inline">\(x\)</span> et <span class="math inline">\(y\)</span>.</li>
+</ol>
+</div>
+<div class="definition">
+<p><span id="def:unlabeled-div-8" class="definition"><strong>Définition 1.3  </strong></span>Une suite <span class="math inline">\((x_n)\)</span> <em>converge</em> vers une limite <span class="math inline">\(\ell\)</span> si pour tout <span class="math inline">\(\varepsilon&gt;0\)</span>, il existe <span class="math inline">\(N\in\mathbb{N}\)</span> tel que pour tout <span class="math inline">\(n\geq N\)</span>, <span class="math inline">\(|x_n-\ell|\leq\varepsilon\)</span>. On notera alors <span class="math inline">\(\lim x_n=\ell\)</span>.</p>
+<p>Une suite qui converge vers une limite est appelée <em>suite convergente</em>.</p>
+</div>
+<div class="lemma">
+<p><span id="lem:unlabeled-div-9" class="lemma"><strong>Lemme 1.3  </strong></span>Toute suite admet au plus une limite.</p>
+</div>
+<div class="proof">
+<p><span id="unlabeled-div-10" class="proof"><em>Preuve</em>. </span>On raisonne par l’absurde. Suppsons que <span class="math inline">\((x_n)\)</span> admette deux limites <span class="math inline">\(\ell_1\)</span> et <span class="math inline">\(\ell_2\)</span> avec <span class="math inline">\(\ell_1\neq\ell_2\)</span>. On applique la définition de limite avec <span class="math inline">\(\varepsilon=|\ell_1-\ell_2|/3\)</span>. Il existe alors <span class="math inline">\(N_1\)</span> tel que pour tout <span class="math inline">\(n\geq N_1\)</span> <span class="math inline">\(|\ell_1-x_n|&lt;\varepsilon\)</span> et <span class="math inline">\(N_2\)</span> tel que pour tout <span class="math inline">\(n\geq N_2\)</span> <span class="math inline">\(|\ell_2-x_n|&lt;\varepsilon\)</span>. Posons <span class="math inline">\(N=\max\{N_1,N_2\}\)</span> alors pour <span class="math inline">\(n\geq N\)</span>, <span class="math inline">\(|\ell_1-x_n|&lt;\varepsilon\)</span> et <span class="math inline">\(|\ell_2-x_n|&lt;\varepsilon\)</span>. comme <span class="math inline">\(|\ell_1-\ell_2|=|\ell_1-x_n+x_n-\ell_2|\)</span>, on a <span class="math inline">\(|\ell_1-\ell_2|\leq|\ell_1-x_n|+|x_n-\ell_2|\)</span> par inégalité triangulaire. Ainsi, <span class="math inline">\(|\ell_1-\ell_2|\|eq2\varepsilon=2/3|\ell_1-\ell_2|\)</span> et comme <span class="math inline">\(|\ell_1-\ell_2|\neq0\)</span>, on obtient la contradiction <span class="math inline">\(3\leq2\)</span>.</p>
+</div>
+<div class="definition">
+<p><span id="def:unlabeled-div-11" class="definition"><strong>Définition 1.4  </strong></span>Soit <span class="math inline">\(A\in\mathbb{R}\)</span> et <span class="math inline">\((x_n)\)</span> une suite, on dit que <span class="math inline">\(A\)</span> est un <em>majorant</em> de <span class="math inline">\((x_n)\)</span> si <span class="math inline">\(x_n\leq A\)</span> pour tout <span class="math inline">\(n\in\mathbb{R}\)</span>. Une suite qui possède un majorant est dite <em>majorée</em>.</p>
+<p>Soit <span class="math inline">\(A\in\mathbb{R}\)</span> et <span class="math inline">\((x_n)\)</span> une suite, on dit que <span class="math inline">\(A\)</span> est un <em>minorant</em> de <span class="math inline">\((x_n)\)</span> si <span class="math inline">\(x_n\geq A\)</span> pour tout <span class="math inline">\(n\in\mathbb{R}\)</span>. Une suite qui possède un majorant est dite <em>minorée</em>.</p>
+<p>Une suite est <em>bornée</em> si elle est à la fois majorée et minorée.</p>
+</div>
+<div class="example">
+<p><span id="exm:unlabeled-div-12" class="example"><strong>Exemple 1.2  </strong></span>Une suite <span class="math inline">\((x_n)\)</span> est <em>constante</em> s’il existe <span class="math inline">\(a\in\mathbb{R}\)</span> tel que <span class="math inline">\(x_n=a\)</span> pour tout <span class="math inline">\(n\in\mathbb{N}\)</span>. Une suite constante est toujours convergente de limite égale à la constante <span class="math inline">\(a\)</span>.</p>
+</div>
+<div class="example">
+<p><span id="exm:harmonique" class="example"><strong>Exemple 1.3  </strong></span>La suite <span class="math inline">\((1/n)_{n\in\mathbb{N}^*}\)</span> converge vers 0.</p>
+</div>
+<div class="proof">
+<p><span id="unlabeled-div-13" class="proof"><em>Preuve</em>. </span>Fixons <span class="math inline">\(\varepsilon&gt;0\)</span> alors <span class="math inline">\(1/\varepsilon&gt;0\)</span> et il existe <span class="math inline">\(N\in\mathbb{N}^*\)</span> tel que <span class="math inline">\(N\geq 1/\varepsilon\)</span>. Maintenant, pour <span class="math inline">\(n\geq N\)</span>, <span class="math inline">\(0\leq\frac{1}{n}\leq\frac{1}{N}\leq \varepsilon\)</span> et donc <span class="math inline">\(\left|\frac{1}{n}-0\right|\leq\varepsilon\)</span> et on a bien montré que <span class="math inline">\(\lim \frac{1}{n}=0\)</span>.</p>
+</div>
+<div class="figure"><span style="display:block;" id="fig:chunk-label"></span>
+<img src="_main_files/figure-html/chunk-label-1.png" alt="Les premières valeurs de la suite de terme général $x_n=1/n$ qui converge vers 0. " width="672" />
+<p class="caption">
+Figure 1.1: Les premières valeurs de la suite de terme général <span class="math inline">\(x_n=1/n\)</span> qui converge vers 0.
+</p>
+</div>
+<div class="proposition">
+<p><span id="prp:unlabeled-div-14" class="proposition"><strong>Proposition 1.1  </strong></span>Soit <span class="math inline">\((x_n)\)</span> et <span class="math inline">\((y_n)\)</span> deux suites convergentes de limites respectives <span class="math inline">\(\ell_1\)</span> et <span class="math inline">\(\ell_2\)</span>. On a les propriétés suivantes.</p>
+<ol style="list-style-type: decimal">
+<li>La suite <span class="math inline">\(x_n+y_n\)</span> est convergente avec <span class="math inline">\(\lim x_n+y_n=\ell_1+\ell_2\)</span>.</li>
+<li>La suite <span class="math inline">\(x_ny_n\)</span> est convergente avec <span class="math inline">\(\lim x_ny_n=\ell_1\ell_2\)</span>.</li>
+<li>Si <span class="math inline">\(\ell_2\neq0\)</span> et <span class="math inline">\(y_n\neq 0\)</span> pour tout <span class="math inline">\(n\in\mathbb{N}\)</span> alors la suite <span class="math inline">\(x_n/y_n\)</span> est convergente avec <span class="math inline">\(\lim x_n/y_n=\ell_1/\ell_2\)</span>.</li>
+<li>Si <span class="math inline">\(x_n\leq y_n\)</span> pour tout <span class="math inline">\(n\in\mathbb{N}\)</span> alors <span class="math inline">\(\ell_1\leq \ell_2\)</span>.</li>
+<li>Soit <span class="math inline">\(a\in\mathbb{R}\)</span>. Si <span class="math inline">\(x_n\geq a\)</span> (respectivement <span class="math inline">\(x_n\leq a\)</span>) pour tout <span class="math inline">\(n\in\mathbb{N}\)</span> alors <span class="math inline">\(\ell_1\geq a\)</span> (respectivement <span class="math inline">\(\ell_1\leq a\)</span>).</li>
+</ol>
+</div>
+<div class="proof">
+<ol style="list-style-type: decimal">
+<li><span id="unlabeled-div-15" class="proof"><em>Preuve</em>. </span></li>
+<li>Soit <span class="math inline">\(\varepsilon&gt;0\)</span>. Comme <span class="math inline">\(x_n\to\ell_1\)</span>, il existe <span class="math inline">\(N_1\)</span> tel que pour tout <span class="math inline">\(n\geq N_1\)</span>, <span class="math inline">\(|x_n-\ell_1|\leq \varepsilon/2\)</span>. De même, il <span class="math inline">\(N_1\)</span> tel que pour tout <span class="math inline">\(n\geq N_2\)</span>, <span class="math inline">\(|x_n-\ell_2|\leq \varepsilon/2\)</span>. Maintenant pour <span class="math inline">\(n\geq\max{N_1,N_2}\)</span>, <span class="math inline">\(|x_n+y_n-(\ell_1-\ell_2)|=|x_n-\ell_1+ y_n-\ell_2|\leq |x_n-\ell_1|+|y_n-\ell_2|\leq \varepsilon/2+\varepsilon/2=\varepsilon\)</span>.</li>
+<li></li>
+<li>Montrons d’abord le cas particulier où <span class="math inline">\((x_n)\)</span> est constante égale à 1, c’est-à-dire montrons que <span class="math inline">\(1/y_n\to1/\ell_2\)</span>. On a</li>
+</ol>
+<p><span class="math display">\[\left|\frac{1}{y_n}-\frac{1}{\ell_2}\right|=\left|\frac{\ell_2-y_n}{y_n\ell_2}\right|\]</span></p>
+<p>Comme <span class="math inline">\(y_n\to\ell_2\)</span>, il existe <span class="math inline">\(N\in\mathbb{N}\)</span> tel que pour tout <span class="math inline">\(n\geq N\)</span>, <span class="math inline">\(|y_n|\geq |\ell_2|/2\)</span>. Ainsi <span class="math inline">\(\left|\frac{1}{y_n}-\frac{1}{\ell_2}\right|\leq 2/|\ell_2|^2 |y_n-\ell_2|\)</span> et donc pour <span class="math inline">\(n\)</span> assez grand pour que <span class="math inline">\(|y_n-\ell_2|\leq\varepsilon/(2/|\ell_2|^2)\)</span>, on a bien |-|$.
+4.
+5. On utilise le cas 4. avec <span class="math inline">\((y_n)\)</span> constante égale à <span class="math inline">\(a\)</span>.</p>
+</div>
+</div>
+<div id="opérations-sur-les-limites" class="section level2 hasAnchor" number="1.3">
+<h2><span class="header-section-number">1.3</span> Opérations sur les limites<a href="suites.html#opérations-sur-les-limites" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div class="definition">
+<p><span id="def:unlabeled-div-16" class="definition"><strong>Définition 1.5  (Bornes supérieures et inférieures) </strong></span>Si <span class="math inline">\((x_n)\)</span> est une suite majorée, on note <span class="math inline">\(\sup x_n\)</span> le plus petit des ses majorants.</p>
+<p>Si <span class="math inline">\((x_n)\)</span> est une suite minorée, on note <span class="math inline">\(\inf x_n\)</span> le plus petit des ses minorants.</p>
+</div>
+<p>L’existence des ces bornes supérieures (<span class="math inline">\(\sup x_n\)</span>) et inférieures (<span class="math inline">\(\inf x_n\)</span>) n’est pas évidente et une conséquence d’une construction formelle de l’ensemble des nombres réels <span class="math inline">\(\mathbb{R}\)</span>. Nous ne rentrons pas dans ces détails et admettons l’existence des bornes supérieures et inférieures. La construction donne la proposition suivante.</p>
+<div class="proposition">
+<p><span id="prp:sup" class="proposition"><strong>Proposition 1.2  </strong></span>Soit <span class="math inline">\((x_n)\)</span> une suite majorée (respectivement minorée) de borne supérieure <span class="math inline">\(A=\sup x_n\)</span> (respectivement borne inférieure <span class="math inline">\(A=\inf x_n\)</span>) et <span class="math inline">\(\varepsilon&gt;0\)</span> . Alors il existe <span class="math inline">\(n\in\mathbb{N}\)</span> tel que <span class="math inline">\(x_n\geq A-\varepsilon\)</span> (respectivement <span class="math inline">\(x_n\leq A+\varepsilon\)</span>).</p>
+</div>
+<div class="proposition">
+<p><span id="prp:unlabeled-div-17" class="proposition"><strong>Proposition 1.3  </strong></span>Toute suite <span class="math inline">\((x_n)\)</span> croissante et majorée est convergente vers <span class="math inline">\(\sup x_n\)</span>.</p>
+</div>
+<div class="proposition">
+<p><span id="prp:unlabeled-div-18" class="proposition"><strong>Proposition 1.4  </strong></span>Toute suite <span class="math inline">\((x_n)\)</span> décroissante et minorée est convergente vers <span class="math inline">\(\inf x_n\)</span>.</p>
+</div>
+<div class="proof">
+<p><span id="unlabeled-div-19" class="proof"><em>Preuve</em>. </span>La preuve est la même pour les deux proposition en changeant ce qui doit l’être. On prouve seulement la première et on note <span class="math inline">\(A=\sup x_n\)</span>. Soit <span class="math inline">\(\varepsilon&gt;0\)</span>, par la Proposition <a href="suites.html#prp:sup">1.2</a>, il existe <span class="math inline">\(n_0\in\mathbb{N}\)</span> tel que <span class="math inline">\(x_{n_0}\geq A-\varepsilon\)</span>.Par croissance, on a aussi <span class="math inline">\(x_n\geq x_{n_0}\geq A-\varepsilon\)</span> pour <span class="math inline">\(n\geq n_0\)</span>. Comme <span class="math inline">\(A\)</span> est un majorant, on a aussi <span class="math inline">\(x_{n}\leq A\)</span> pour tout <span class="math inline">\(n\in\mathbb{N}\)</span> et donc <span class="math inline">\(n\in\mathbb{N}\)</span>.</p>
+</div>
+<div class="example">
+<p><span id="exm:unlabeled-div-20" class="example"><strong>Exemple 1.4  </strong></span>La suite <span class="math inline">\((x_n)\)</span> définie par <span class="math inline">\(x_n=1/n\)</span> pour <span class="math inline">\(n\in\mathbb{N}^*\)</span> est décroissante et minorée par 0. On a déjà vu qu’elle converge vers 0 dans l’Exemple <a href="suites.html#exm:harmonique">1.3</a>.</p>
+</div>
+</div>
+<div id="limites-infinies" class="section level2 hasAnchor" number="1.4">
+<h2><span class="header-section-number">1.4</span> Limites infinies<a href="suites.html#limites-infinies" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Il existe des cas où une suite ne converge pas mais devient “aussi grande possible”. La définition suivante rend rigoureuse cette notion.</p>
+<div class="definition">
+<p><span id="def:unlabeled-div-21" class="definition"><strong>Définition 1.6  </strong></span>Une suite <span class="math inline">\((x_n)\)</span> <em>converge vers <span class="math inline">\(+\infty\)</span></em> si pour tout <span class="math inline">\(A&gt;0\)</span>, il existe <span class="math inline">\(N\in\mathbb{N}\)</span> tel que pour tout <span class="math inline">\(n\geq N\)</span>, <span class="math inline">\(x_n\geq A\)</span>. On note <span class="math inline">\(\lim x_n=+\infty\)</span>.</p>
+<p>Une suite <span class="math inline">\((x_n)\)</span> <em>converge vers <span class="math inline">\(-\infty\)</span></em> si pour tout <span class="math inline">\(A&lt;0\)</span>, il existe <span class="math inline">\(N\in\mathbb{N}\)</span> tel que pour tout <span class="math inline">\(n\geq N\)</span>, <span class="math inline">\(x_n\leq A\)</span>. On note <span class="math inline">\(\lim x_n=-\infty\)</span>.</p>
+</div>
+<div class="example">
+<p><span id="exm:unlabeled-div-22" class="example"><strong>Exemple 1.5  </strong></span>Pour un entier strictement positif <span class="math inline">\(k\)</span>, la suite <span class="math inline">\((x_n)\)</span> où <span class="math inline">\(x_n=n^k\)</span> converge vers <span class="math inline">\(+\infty\)</span>.</p>
+</div>
+<div class="proof">
+<p><span id="unlabeled-div-23" class="proof"><em>Preuve</em>. </span>Soit <span class="math inline">\(A&gt;0\)</span>, On choisit <span class="math inline">\(N\geq A\)</span> et <span class="math inline">\(N\geq1\)</span>, par exemple, <span class="math inline">\(N=\lfloor A\rfloor+1\)</span> (partie entière plus 1). Pour <span class="math inline">\(n\geq N\)</span>, on a <span class="math inline">\(n^k=\underbrace{n\times\cdots\times n}_{k\ \textrm{fois}}\geq n\geq N\geq A\)</span> car <span class="math inline">\(n\geq 1\)</span> et <span class="math inline">\(k\geq 1\)</span>.</p>
+</div>
+<div class="proposition">
+<p><span id="prp:unlabeled-div-24" class="proposition"><strong>Proposition 1.5  </strong></span>Une suite croissante non majorée converge vers <span class="math inline">\(+\infty\)</span>. De même, une suite décroissante non minorée converge vers <span class="math inline">\(-\infty\)</span>.</p>
+</div>
+<div class="proof">
+<p><span id="unlabeled-div-25" class="proof"><em>Preuve</em>. </span>On prouve uniquement le cas d’une suite croissante, la preuve s’adapte pour le cas décroissant. Soit <span class="math inline">\((x_n)\)</span> une suite croissante non majorée. Soit <span class="math inline">\(A&gt;0\)</span>. Comme la suite n’est pas pas majorée, <span class="math inline">\(A\)</span> n’est pas un majorant et donc il existe <span class="math inline">\(n_0\in\mathbb{N}\)</span> tel que <span class="math inline">\(x_{n_0}&gt;A\)</span> et donc par croissance, pour tout <span class="math inline">\(n\geq n_0\)</span>, <span class="math inline">\(x_n\geq A\)</span>. Ce qui montre bien <span class="math inline">\(\lim x_n=+\infty\)</span>.</p>
+</div>
+<div class="proposition">
+<p><span id="prp:unlabeled-div-26" class="proposition"><strong>Proposition 1.6  </strong></span>Soit <span class="math inline">\((x_n)\)</span> et <span class="math inline">\((y_n)\)</span> avec <span class="math inline">\(x_n\leq y_n\)</span> pour tout <span class="math inline">\(n\in\mathbb{N}\)</span>.</p>
+<ul>
+<li>Si <span class="math inline">\(\lim x_n=+\infty\)</span> alors <span class="math inline">\(\lim y_n=+\infty\)</span>.</li>
+<li>Si <span class="math inline">\(\lim y_n=-\infty\)</span> alors <span class="math inline">\(\lim x_n=-\infty\)</span>.</li>
+</ul>
+</div>
+<div class="proof">
+<p><span id="unlabeled-div-27" class="proof"><em>Preuve</em>. </span>Supposons <span class="math inline">\(\lim x_n=+\infty\)</span> et choisissons <span class="math inline">\(A&gt;0\)</span> alors il existe <span class="math inline">\(N\in\mathbb{N}\)</span> tel que pour tout <span class="math inline">\(n\geq N\)</span> <span class="math inline">\(x_n\geq A\)</span>. Ainsi, pour <span class="math inline">\(n\geq N\)</span>, <span class="math inline">\(y_n\geq x_n\geq A\)</span> et on a prouvé que <span class="math inline">\(\lim y_n=+\infty\)</span>.</p>
+<p>Le second cas se traite de manière analogue.</p>
+</div>
+</div>
+<div id="deux-exemples" class="section level2 hasAnchor" number="1.5">
+<h2><span class="header-section-number">1.5</span> Deux exemples<a href="suites.html#deux-exemples" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="suites-arithmétiques" class="section level3 hasAnchor" number="1.5.1">
+<h3><span class="header-section-number">1.5.1</span> Suites arithmétiques<a href="suites.html#suites-arithmétiques" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="theorem">
+<p><span id="thm:unlabeled-div-28" class="theorem"><strong>Théorème 1.1  </strong></span>Soit <span class="math inline">\((x_n)\)</span> une suite arithmétique de raison <span class="math inline">\(r\)</span></p>
+<ul>
+<li>Si <span class="math inline">\(r&gt;0\)</span> alors <span class="math inline">\(\lim x_n=+\infty\)</span>.</li>
+<li>Si <span class="math inline">\(r=0\)</span> alors <span class="math inline">\(\lim x_n=x_0\)</span>.</li>
+<li>Si <span class="math inline">\(r&lt;0\)</span> alors <span class="math inline">\(\lim x_n=-\infty\)</span>.</li>
+</ul>
+</div>
+<div class="proof">
+<p><span id="unlabeled-div-29" class="proof"><em>Preuve</em>. </span>Par récurrence, on montre que <span class="math inline">\(x_n=x_0+nr\)</span>.</p>
+<ul>
+<li>Si <span class="math inline">\(r&gt;0\)</span> alors pour <span class="math inline">\(A&gt;0\)</span> fixé, on prend <span class="math inline">\(N=\lfloor (A-x_0)/r\rfloor+1\)</span> et alors pour <span class="math inline">\(n\geq N\)</span>, <span class="math inline">\(n\geq (A-x_0)/r\)</span>, ce qui donne <span class="math inline">\(x_n=x_0+nr\geq A\)</span> et donc <span class="math inline">\(\lim x_n=+\infty\)</span>.</li>
+<li>Si <span class="math inline">\(r=0\)</span> alors la suite <span class="math inline">\((x_n)\)</span> est constante égale à <span class="math inline">\(x_0\)</span> et converge donc vers cette limite.</li>
+<li>Si <span class="math inline">\(r&lt;0\)</span> alors pour <span class="math inline">\(A&lt;0\)</span> fixé, on prend <span class="math inline">\(N\)</span> entier plus grand que <span class="math inline">\((A-x_0)/r\)</span> (remarquons que <span class="math inline">\(A/r&gt;0\)</span> car <span class="math inline">\(A\)</span> et <span class="math inline">\(r\)</span> sont négatifs). Maintenant, pour <span class="math inline">\(n\geq N\)</span>, <span class="math display">\[n\geq \frac{A-x_0}{r}\]</span> et comme <span class="math inline">\(r&lt;0\)</span>,</li>
+</ul>
+<p><span class="math display">\[nr\leq A-x_0\]</span>
+et donc <span class="math inline">\(x_n=x_0+nr\leq A\)</span>. Ainsi, <span class="math inline">\(\lim x_n=-\infty\)</span>.</p>
+</div>
+</div>
+<div id="suites-géométriques" class="section level3 hasAnchor" number="1.5.2">
+<h3><span class="header-section-number">1.5.2</span> Suites géométriques<a href="suites.html#suites-géométriques" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Commençons avec un petit lemme qui permettra de comparer suite géométrique et arithmétique.</p>
+<div class="lemma">
+<p><span id="lem:unlabeled-div-30" class="lemma"><strong>Lemme 1.4  (Inégalité de Bernoulli) </strong></span>Pour tout réel <span class="math inline">\(a\geq0\)</span> et nombre entier <span class="math inline">\(n\in\mathbb{N}\)</span>, on a</p>
+<p><span class="math display">\[(1+a)^n\geq1+na.\]</span></p>
+</div>
+<div class="proof">
+<p><span id="unlabeled-div-31" class="proof"><em>Preuve</em>. </span>On le montre par récurrence sur <span class="math inline">\(n\)</span>. Pour <span class="math inline">\(n=0\)</span>, on obtient <span class="math inline">\(1=1\)</span> et la récurrence est initialisée. Supposons maintenant le résultat pour <span class="math inline">\(n\)</span> fixé. Alors <span class="math inline">\((1+a)^{n+1}=(1+a)^n\cdot(1+a)\geq(1+na)(1+a)=1+(n+1)a+na^2\geq 1+(n+1)a\)</span>. Ce qui montre l’étape de récurrence.</p>
+</div>
+<p>Dans le théorème suivant, on se place dans le cas d’une suite géométrique de premier terme <span class="math inline">\(x_0\)</span> non nul. En effet, si <span class="math inline">\(x_0=0\)</span>, la suite est constante égale à 0 et il n’y a rien de plus à dire.</p>
+<div class="theorem">
+<p><span id="thm:unlabeled-div-32" class="theorem"><strong>Théorème 1.2  </strong></span>Soit <span class="math inline">\((x_n)\)</span> une suite géométrique de raison <span class="math inline">\(r\)</span> avec <span class="math inline">\(x_0\neq0\)</span>.</p>
+<ul>
+<li>Si <span class="math inline">\(r&gt;1\)</span> alors <span class="math inline">\(\lim x_n=+\infty\)</span> si <span class="math inline">\(x_0&gt;0\)</span> et <span class="math inline">\(\lim x_n=-\infty\)</span> si <span class="math inline">\(x_0&lt;0\)</span>.</li>
+<li>Si <span class="math inline">\(r=1\)</span> alors la suite est constante égale à <span class="math inline">\(x_0\)</span>.</li>
+<li>Si <span class="math inline">\(|r|&lt;1\)</span> alors <span class="math inline">\(\lim x_n=0\)</span>.</li>
+<li>Si <span class="math inline">\(r\leq -1\)</span> alors la suite <span class="math inline">\((x_n)\)</span> n’est pas convergente.</li>
+</ul>
+</div>
+<div class="proof">
+<p><span id="unlabeled-div-33" class="proof"><em>Preuve</em>. </span>Un raisonnement par récurrence montre que <span class="math inline">\(x_n= r^nx_0\)</span>.</p>
+<ul>
+<li>Si <span class="math inline">\(r&gt;1\)</span> alors posons <span class="math inline">\(a=r-1&gt;0\)</span>. Ainsi, <span class="math inline">\(r^n=(1+a)^n\geq 1+na\)</span>. Pour <span class="math inline">\(A&gt;0\)</span>, On choisit <span class="math inline">\(N\)</span> entier supérieur à <span class="math inline">\(A/a\)</span>, ainsi pour <span class="math inline">\(n\geq N\)</span>, <span class="math inline">\(n\geq A/a\)</span> et donc $r^n</li>
+<li>Si <span class="math inline">\(r=1\)</span> alors <span class="math inline">\(r^n=1\)</span> pour tout <span class="math inline">\(n\)</span> et donc <span class="math inline">\(x_n=x_0\)</span> pour tout <span class="math inline">\(n\)</span>.</li>
+<li>Si <span class="math inline">\(|r|&lt;1\)</span> alros <span class="math inline">\(1/|r|&gt;1\)</span> et donc par le premier cas, pour tout <span class="math inline">\(\varepsilon&gt;0\)</span>, il existe <span class="math inline">\(N\in\mathbb{N}\)</span> tel que pour tout <span class="math inline">\(n\geq N\)</span>, <span class="math inline">\(\left(1/|r|\right)^n\geq \frac{|x_0|}{\varepsilon}\)</span> et ainsi <span class="math inline">\(|r^nx_0|\leq\varepsilon\)</span>. Ce qui montre que <span class="math inline">\(x_n=r^nx_0\to0\)</span>.</li>
+<li>Si <span class="math inline">\(r&lt; -1\)</span> alors <span class="math inline">\(|x_n|=|r|^n|x_0|\to\infty\)</span> car <span class="math inline">\(|r|&gt;1\)</span>. Ainsi, la suite n’est pas bornée et donc ne peut pas converger (voir l’Exercice <a href="suites.html#exr:borne">1.3</a>)</li>
+</ul>
+</div>
+</div>
+</div>
+<div id="suites-adjacentes" class="section level2 hasAnchor" number="1.6">
+<h2><span class="header-section-number">1.6</span> Suites adjacentes<a href="suites.html#suites-adjacentes" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div class="definition">
+<p><span id="def:unlabeled-div-34" class="definition"><strong>Définition 1.7  </strong></span>Soit <span class="math inline">\((x_n)\)</span> et <span class="math inline">\((y_n)\)</span> deux suites numériques. On dit que ces suites sont <em>adjacentes</em> si <span class="math inline">\(x_n\geq y_n\)</span> pour tout <span class="math inline">\(n\in\mathbb{N}\)</span>, <span class="math inline">\((x_n)\)</span> est croissante, <span class="math inline">\((y_n)\)</span> est décroissante et <span class="math inline">\(\lim y_n-x_n=0\)</span>.</p>
+</div>
+<div class="proposition">
+<p><span id="prp:unlabeled-div-35" class="proposition"><strong>Proposition 1.7  </strong></span>Si <span class="math inline">\((x_n)\)</span> et <span class="math inline">\((y_n)\)</span> sont deux suites adjacentes alors ces deux suites sont convergentes et <span class="math inline">\(\lim x_n=\lim y_n\)</span>.</p>
+</div>
+<div class="proof">
+<p><span id="unlabeled-div-36" class="proof"><em>Preuve</em>. </span>La suite <span class="math inline">\((x_n)\)</span> est croissante majorée (par <span class="math inline">\(y_0\)</span> par exemple) et donc converge vers une limite <span class="math inline">\(\ell_1\)</span>. De même, <span class="math inline">\((y_n)\)</span> est décroissante minorée et donc converge vers une limite <span class="math inline">\(\ell_2\)</span>. Ainsi la suite <span class="math inline">\((y_n-x_n)\)</span> est convergente de limite <span class="math inline">\(\ell_2-\ell_1\)</span>. Comme <span class="math inline">\(\lim y_n-x_n=0\)</span>, on a <span class="math inline">\(\ell_2-\ell_1=0\)</span> et donc <span class="math inline">\(\ell_1=\ell_2\)</span>.</p>
+</div>
+<div class="figure"><span style="display:block;" id="fig:chunk-label-1"></span>
+<img src="_main_files/figure-html/chunk-label-1-1.png" alt="Deux suites adjacentes qui converge vers 1. " width="672" />
+<p class="caption">
+Figure 1.2: Deux suites adjacentes qui converge vers 1.
+</p>
+</div>
+<div class="theorem">
+<p><span id="thm:unlabeled-div-37" class="theorem"><strong>Théorème 1.3  (Théorème des gendarmes) </strong></span>Soit <span class="math inline">\((x_n), (y_n)\)</span> et <span class="math inline">\((u_n)\)</span> trois suites telles que pour tout <span class="math inline">\(n\in\mathbb{N}\)</span>, <span class="math inline">\(x_n\leq u_n\leq y_n\)</span> et telles <span class="math inline">\((x_n), (y_n)\)</span> sont convergentes avec <span class="math inline">\(\lim x_n=\lim y_n=\ell\)</span> alors <span class="math inline">\((u_n)\)</span> est convergente de limite <span class="math inline">\(\ell\)</span>.</p>
+</div>
+</div>
+<div id="exercices" class="section level2 hasAnchor" number="1.7">
+<h2><span class="header-section-number">1.7</span> Exercices<a href="suites.html#exercices" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div class="exercise">
+<p><span id="exr:unlabeled-div-38" class="exercise"><strong>Exercice 1.1  </strong></span>Donner un exemple d’une suite qui n’est pas monotone.</p>
+</div>
+<div class="exercise">
+<p><span id="exr:unlabeled-div-39" class="exercise"><strong>Exercice 1.2  </strong></span>Montrer qu’une suite <span class="math inline">\((x_n)\)</span> est bornée si et seulement s’il existe <span class="math inline">\(A\geq 0\)</span> tel que pour tout <span class="math inline">\(n\in \mathbb{N}\)</span>, <span class="math inline">\(|x_n|\leq A\)</span>.</p>
+</div>
+<div class="exercise">
+<p><span id="exr:borne" class="exercise"><strong>Exercice 1.3  </strong></span>Montrer qu’une suite convergente est toujours bornée.</p>
+</div>
+<div class="exercise">
+<p><span id="exr:unlabeled-div-40" class="exercise"><strong>Exercice 1.4  </strong></span>On définit deux suites <span class="math inline">\((x_n)\)</span> et <span class="math inline">\((y_n)\)</span> par <span class="math inline">\(x_n=2^n\)</span> et <span class="math inline">\(y_n=3^n\)</span>. Déterminer la comportement des suites de termes généraux <span class="math inline">\(z_n=x_n+y_n\)</span>, <span class="math inline">\(u_n=x_n-y_n\)</span>, <span class="math inline">\(v_n=x_ny_n\)</span>, <span class="math inline">\(w_n=x_n/y_n\)</span> et <span class="math inline">\(t_n=y_n/x_n\)</span>.</p>
+</div>
+<div class="exercise">
+<p><span id="exr:unlabeled-div-41" class="exercise"><strong>Exercice 1.5  </strong></span>Soit <span class="math inline">\((x_n)\)</span> une suite convergente de limite <span class="math inline">\(\ell\)</span>. On pose <span class="math inline">\(y_n=x_{2n}\)</span> pour tout <span class="math inline">\(n\in\mathbb{N}\)</span>. Montrer que la suite <span class="math inline">\((y_n)\)</span> est convergente de limite <span class="math inline">\(\ell\)</span>.</p>
+</div>
+<div class="exercise">
+<p><span id="exr:unlabeled-div-42" class="exercise"><strong>Exercice 1.6  </strong></span>Soit <span class="math inline">\(a,b\in \mathbb{R}\)</span>. On fixe <span class="math inline">\(x_0\)</span> et on définit récursivement <span class="math inline">\(x_{n+1}=ax_n+b\)</span>.</p>
+<ol style="list-style-type: decimal">
+<li>Déterminer le comportement de <span class="math inline">\((x_n)\)</span> si <span class="math inline">\(a=0\)</span> ou <span class="math inline">\(a=1\)</span>.</li>
+<li>On suppose <span class="math inline">\(a\neq0\)</span>. On pose <span class="math inline">\(c=\frac{b}{a-1}\)</span> et <span class="math inline">\(y_n=x_n+c\)</span>. Montrer que <span class="math inline">\((y_n)\)</span> est une suite géométrique de raison <span class="math inline">\(a\)</span>.</li>
+<li>En fonction de <span class="math inline">\(a\)</span>, déterminer le comportement de <span class="math inline">\(y_n\)</span> puis celui de <span class="math inline">\(x_n\)</span>.</li>
+<li>À l’aide de la formule explicite d’une suite géométrique, déduire une formule explicite pour <span class="math inline">\(x_n\)</span>.</li>
+</ol>
+</div>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="introduction.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="continuité-et-dérivation-de-fonctions-réelles.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/USERNAME/REPO/edit/BRANCH/02-suites.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["_main.pdf", "_main.epub"],
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

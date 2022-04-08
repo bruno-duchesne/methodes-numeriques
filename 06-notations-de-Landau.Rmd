@@ -1,0 +1,8 @@
+# Notations de Landau et type de complexité
+
+## Notations de Landau
+
+## Comparaisons usuelles
+
+## Application à la complexité de quelques algorithmes
+

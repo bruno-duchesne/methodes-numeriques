@@ -1,0 +1,27 @@
+image: rocker/verse:4.0.2
+
+.bookdown:
+  stage: deploy
+  script:
+    - Rscript -e "bookdown::render_book('index.Rmd', 'all', output_dir = 'public')"
+  artifacts:
+    paths:
+      - public
+
+pages:
+  extends: .bookdown
+  only:
+    - master
+
+mr-review:
+  extends: .bookdown
+  after_script:
+    - echo "ENVIRONMENT_URL=https://$CI_PROJECT_NAMESPACE.$CI_PAGES_DOMAIN/-/$CI_PROJECT_NAME/-/jobs/$CI_JOB_ID/artifacts/public/index.html" >> deploy.env
+  artifacts:
+    reports:
+      dotenv: deploy.env
+  environment:
+    name: review/$CI_COMMIT_REF_NAME
+    url: $ENVIRONMENT_URL
+  only:
+    - merge_requests
